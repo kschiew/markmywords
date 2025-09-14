@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 140" role="img" aria-labelledby="title">
+  <title id="title">markmywords — wordmark</title>
+  <style>
+    .wm { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", sans-serif; line-height: 1.1; letter-spacing: -0.02em; }
+    .a  { font-weight: 700; }   /* mark */
+    .b  { font-weight: 400; }   /* my   */
+    .c  { font-weight: 800; }   /* words*/
+  </style>
+  <!-- Uses currentColor so you can tint via CSS -->
+  <text x="0" y="95" class="wm" fill="currentColor" font-size="78">
+    <tspan class="a">mark</tspan>
+    <tspan class="b">my</tspan>
+    <tspan class="c">words</tspan>
+  </text>
+</svg>
+
