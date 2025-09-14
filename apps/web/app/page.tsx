@@ -1,5 +1,5 @@
-import { Button } from "@workspace/ui/components/button";
-import { Input } from "@workspace/ui/components/input";
+import { Button } from '@workspace/ui/components/button'
+import { Input } from '@workspace/ui/components/input'
 export default function Page() {
   return (
     <div className="container mx-auto p-8 flex items-center justify-center min-h-svh">
@@ -9,5 +9,5 @@ export default function Page() {
         <Button size="sm">Button</Button>
       </div>
     </div>
-  );
+  )
 }
