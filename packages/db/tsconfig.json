@@ -1,0 +1,7 @@
+{
+  "extends": "@workspace/typescript-config/nextjs.json",
+  "compilerOptions": { "baseUrl": "." },
+  "types": ["node"],
+  "include": ["src", "drizzle.config.ts"],
+  "exclude": ["node_modules"]
+}
