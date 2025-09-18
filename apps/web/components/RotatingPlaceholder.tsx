@@ -3,9 +3,11 @@
 import { Input } from '@workspace/ui/components/input'
 import clsx from 'clsx'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
-import { useEffect, useState } from 'react'
+import { ChangeEventHandler, useEffect, useState } from 'react'
 
 export type RotatingPlaceholderInputProps = {
+  value: string
+  onChange: ChangeEventHandler<HTMLInputElement>
   suggestions: string[]
   intervalMs?: number
   animation?: 'fade' | 'type'
@@ -19,11 +21,12 @@ export const RotatingPlaceholderInput = ({
   animation,
   className,
   inputProps,
+  value,
+  onChange,
 }: RotatingPlaceholderInputProps) => {
   const reduceMotion = useReducedMotion()
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
-  const [value, setValue] = useState('')
 
   const active = suggestions.length > 0 && !paused && value.length === 0
 
@@ -41,11 +44,6 @@ export const RotatingPlaceholderInput = ({
   const onFocus = () => setPaused(true)
   const onBlur = () => setPaused(false)
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value)
-    inputProps?.onChange?.(e)
-  }
-
   const suggestion = suggestions[index] ?? ''
 
   // Animation variants
@@ -53,7 +51,7 @@ export const RotatingPlaceholderInput = ({
   const typeSpeed = reduceMotion ? 0 : 25
 
   return (
-    <div className="relative min-w-1/2">
+    <div className="relative min-w-150">
       <Input
         aria-describedby={inputProps?.['aria-describedby']}
         {...inputProps}

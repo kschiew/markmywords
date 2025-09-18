@@ -11,6 +11,7 @@ import {
   UserButton,
 } from '@clerk/nextjs'
 import Image from 'next/image'
+import { Button } from '@workspace/ui/components/button'
 
 const fontSans = Geist({
   subsets: ['latin'],
@@ -45,9 +46,7 @@ export default function RootLayout({
                 <div className="flex gap-2">
                   <SignInButton />
                   <SignUpButton>
-                    <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
-                      Sign Up
-                    </button>
+                    <Button>Sign Up</Button>
                   </SignUpButton>
                 </div>
               </SignedOut>
