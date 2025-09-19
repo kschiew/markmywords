@@ -13,7 +13,12 @@ import {
 import { useUser } from '@clerk/nextjs'
 import { UseFormReturn } from 'react-hook-form'
 import { CreatePredictionFormValues } from './CreatePredictionSection'
-import { FormField } from '@workspace/ui/components/form'
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+} from '@workspace/ui/components/form'
 import {
   Popover,
   PopoverContent,
@@ -24,6 +29,8 @@ import { useState } from 'react'
 import { parseDate } from 'chrono-node'
 import { CalendarIcon } from 'lucide-react'
 import { Calendar } from '@workspace/ui/components/calendar'
+import { Checkbox } from '@workspace/ui/components/checkbox'
+import { cn } from '@workspace/ui/lib/utils'
 
 export type CreatePredictionModalProps = {
   form: UseFormReturn<CreatePredictionFormValues>
@@ -44,6 +51,7 @@ export const CreatePredictionModal = ({ form }: CreatePredictionModalProps) => {
   const { user } = useUser()
   const predictionText = form.watch('prediction')
   const remindBy = form.watch('remindBy')
+  const skipRemind = form.watch('skipRemind')
 
   const [naturalTextInput, setNaturalTextInput] = useState('In two days')
   const [isCalendarPopoverOpen, setIsCalendarPopoverOpen] = useState(false)
@@ -59,10 +67,10 @@ export const CreatePredictionModal = ({ form }: CreatePredictionModalProps) => {
         <DialogHeader>
           <DialogTitle>Create prediction</DialogTitle>
         </DialogHeader>
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-4">
           <Blockquote>
             {predictionText}
-            <BlockquoteAuthor>
+            <BlockquoteAuthor className="text-sm">
               {(user?.fullName ?? 'Unknown jedi') +
                 ', ' +
                 new Date().toLocaleDateString()}
@@ -72,10 +80,13 @@ export const CreatePredictionModal = ({ form }: CreatePredictionModalProps) => {
             control={form.control}
             name={'remindBy'}
             render={({ field }) => (
-              <>
+              <FormItem>
+                <FormLabel>Remind me:</FormLabel>
                 <div className="relative flex gap-2">
                   <Input
                     value={naturalTextInput}
+                    placeholder="Tomorrow or next week"
+                    disabled={skipRemind}
                     onChange={(e) => {
                       setNaturalTextInput(e.target.value)
                       const date = parseDate(e.target.value)
@@ -89,7 +100,7 @@ export const CreatePredictionModal = ({ form }: CreatePredictionModalProps) => {
                     onOpenChange={setIsCalendarPopoverOpen}
                   >
                     <PopoverTrigger asChild>
-                      <Button variant={'ghost'}>
+                      <Button variant={'ghost'} disabled={skipRemind}>
                         <CalendarIcon className="size-3.5" />
                         <span className="sr-only">Select date</span>
                       </Button>
@@ -107,11 +118,32 @@ export const CreatePredictionModal = ({ form }: CreatePredictionModalProps) => {
                     </PopoverContent>
                   </Popover>
                 </div>
-                <div className="text-muted-foreground px-1 text-sm">
+                <div
+                  className={cn('text-muted-foreground px-1 text-sm', {
+                    'line-through': skipRemind,
+                  })}
+                >
                   Your post will be published on{' '}
                   <span className="font-medium">{formatDate(remindBy)}</span>.
                 </div>
-              </>
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="skipRemind"
+            render={({ field }) => (
+              <FormItem className="flex items-center gap-2">
+                <FormControl>
+                  <Checkbox
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                  />
+                </FormControl>
+                <FormLabel className="text-gray-500">
+                  Don't send me a reminder
+                </FormLabel>
+              </FormItem>
             )}
           />
         </div>

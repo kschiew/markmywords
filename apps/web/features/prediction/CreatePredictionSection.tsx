@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form'
 import { Form, FormField, FormItem } from '@workspace/ui/components/form'
 import z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { parseDate } from 'chrono-node'
 
 const createPredictionFormSchema = z.object({
   prediction: z.string(),
@@ -22,6 +23,7 @@ export const CreatePredictionSection = () => {
     resolver: zodResolver(createPredictionFormSchema),
     defaultValues: {
       prediction: '',
+      remindBy: parseDate('In two days') || new Date(),
       skipRemind: false,
     },
   })
