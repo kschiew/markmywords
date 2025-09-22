@@ -12,9 +12,9 @@ import {
 } from '@workspace/ui/components/blockquote'
 import { useUser } from '@clerk/nextjs'
 import { UseFormReturn } from 'react-hook-form'
-import { CreatePredictionFormValues } from './CreatePredictionSection'
 import {
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -29,11 +29,13 @@ import { useState } from 'react'
 import { parseDate } from 'chrono-node'
 import { CalendarIcon } from 'lucide-react'
 import { Calendar } from '@workspace/ui/components/calendar'
-import { Checkbox } from '@workspace/ui/components/checkbox'
 import { cn } from '@workspace/ui/lib/utils'
+import { Switch } from '@workspace/ui/components/switch'
+import { CreatePredictionFormValues } from '@/types/prediction'
 
 export type CreatePredictionModalProps = {
   form: UseFormReturn<CreatePredictionFormValues>
+  onSubmit: () => void
 }
 
 function formatDate(date: Date | undefined) {
@@ -47,10 +49,13 @@ function formatDate(date: Date | undefined) {
   })
 }
 
-export const CreatePredictionModal = ({ form }: CreatePredictionModalProps) => {
+export const CreatePredictionModal = ({
+  form,
+  onSubmit,
+}: CreatePredictionModalProps) => {
   const { user } = useUser()
   const predictionText = form.watch('prediction')
-  const remindBy = form.watch('remindBy')
+  const remindAt = form.watch('remindAt')
   const skipRemind = form.watch('skipRemind')
 
   const [naturalTextInput, setNaturalTextInput] = useState('In two days')
@@ -78,7 +83,7 @@ export const CreatePredictionModal = ({ form }: CreatePredictionModalProps) => {
           </Blockquote>
           <FormField
             control={form.control}
-            name={'remindBy'}
+            name={'remindAt'}
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Remind me:</FormLabel>
@@ -124,7 +129,7 @@ export const CreatePredictionModal = ({ form }: CreatePredictionModalProps) => {
                   })}
                 >
                   Your post will be published on{' '}
-                  <span className="font-medium">{formatDate(remindBy)}</span>.
+                  <span className="font-medium">{formatDate(remindAt)}</span>.
                 </div>
               </FormItem>
             )}
@@ -133,19 +138,43 @@ export const CreatePredictionModal = ({ form }: CreatePredictionModalProps) => {
             control={form.control}
             name="skipRemind"
             render={({ field }) => (
-              <FormItem className="flex items-center gap-2">
+              <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
+                <div className="space-y-0.5">
+                  <FormLabel>Don't send me a reminder</FormLabel>
+                </div>
                 <FormControl>
-                  <Checkbox
+                  <Switch
                     checked={field.value}
                     onCheckedChange={field.onChange}
                   />
                 </FormControl>
-                <FormLabel className="text-gray-500">
-                  Don't send me a reminder
-                </FormLabel>
               </FormItem>
             )}
           />
+          <FormField
+            control={form.control}
+            name="isPrivate"
+            render={({ field }) => (
+              <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
+                <div className="space-y-0.5">
+                  <FormLabel>Make this prediction private</FormLabel>
+                  <FormDescription>
+                    This prediction will be visible to only you, and will not be
+                    visible on the home page.
+                  </FormDescription>
+                </div>
+                <FormControl>
+                  <Switch
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+          <Button className="self-end" onClick={onSubmit}>
+            Submit
+          </Button>
         </div>
       </DialogContent>
     </Dialog>
