@@ -38,7 +38,7 @@ export const RotatingPlaceholderInput = ({
     }, intervalMs)
 
     return () => clearInterval(id)
-  })
+  }, [active, setIndex, intervalMs, suggestions.length])
 
   // Handlers
   const onFocus = () => setPaused(true)

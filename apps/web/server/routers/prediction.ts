@@ -1,12 +1,28 @@
 import { createPredictionFormSchema } from '@/types/prediction'
 import { protectedProcedure, publicProcedure, router } from '../trpc'
 import { db } from '@workspace/db/index'
-import { predictionsTable } from '@workspace/db/schema'
+import { predictionsTable, usersTable } from '@workspace/db/schema'
+import { eq } from 'drizzle-orm'
 
 export const predictionRouter = router({
-  getAll: publicProcedure.query(async () => {
+  getAllPublic: publicProcedure.query(async () => {
     try {
-      return await db.select().from(predictionsTable)
+      return await db
+        .select()
+        .from(predictionsTable)
+        .innerJoin(usersTable, eq(predictionsTable.userId, usersTable.id))
+        .where(eq(predictionsTable.isPrivate, false))
+    } catch (e) {
+      console.log({ e, control: 'control' })
+    }
+  }),
+  getAll: protectedProcedure.query(async ({ ctx }) => {
+    try {
+      return await db
+        .select()
+        .from(predictionsTable)
+        .innerJoin(usersTable, eq(predictionsTable.userId, usersTable.id))
+        .where(eq(predictionsTable.userId, ctx.userId))
     } catch (e) {
       console.log({ e, control: 'control' })
     }

@@ -32,6 +32,7 @@ import { Calendar } from '@workspace/ui/components/calendar'
 import { cn } from '@workspace/ui/lib/utils'
 import { Switch } from '@workspace/ui/components/switch'
 import { CreatePredictionFormValues } from '@/types/prediction'
+import { Prediction } from './Prediction'
 
 export type CreatePredictionModalProps = {
   form: UseFormReturn<CreatePredictionFormValues>
@@ -73,14 +74,11 @@ export const CreatePredictionModal = ({
           <DialogTitle>Create prediction</DialogTitle>
         </DialogHeader>
         <div className="flex flex-col gap-4">
-          <Blockquote>
-            {predictionText}
-            <BlockquoteAuthor className="text-sm">
-              {(user?.fullName ?? 'Unknown jedi') +
-                ', ' +
-                new Date().toLocaleDateString()}
-            </BlockquoteAuthor>
-          </Blockquote>
+          <Prediction
+            text={predictionText}
+            author={user?.fullName || 'Unkonwn Jedi'}
+            date={new Date()}
+          />
           <FormField
             control={form.control}
             name={'remindAt'}

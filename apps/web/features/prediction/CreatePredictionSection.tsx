@@ -30,7 +30,7 @@ export const CreatePredictionSection = () => {
     console.log('onSubmit called')
     const values = form.getValues()
     await createAsync(values)
-    toast()
+    toast('Prediction created successfully!')
   }
 
   return (

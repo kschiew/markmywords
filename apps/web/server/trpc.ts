@@ -1,8 +1,7 @@
 import { initTRPC, TRPCError } from '@trpc/server'
 import { Context } from './context'
 import { db } from '@workspace/db/index'
-import { usersTable } from '@workspace/db/schema'
-/**
+import { usersTable } from '@workspace/db/schema' /**
  * Initialization of tRPC backend
  * Should be done only once per backend!
  */
@@ -21,7 +20,11 @@ export const protectedProcedure = publicProcedure.use(async ({ ctx, next }) => {
     try {
       await db
         .insert(usersTable)
-        .values({ id: ctx.userId, email: ctx.userEmail })
+        .values({
+          id: ctx.userId,
+          email: ctx.userEmail,
+          displayName: ctx.userDisplayName,
+        })
         .onConflictDoNothing()
     } catch (e) {
       console.log('protectedProcedure error', { e })

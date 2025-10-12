@@ -4,6 +4,7 @@ import { pgTable, serial, text, timestamp, boolean } from 'drizzle-orm/pg-core'
 // Example tables for markmywords
 export const usersTable = pgTable('users', {
   id: text('id').primaryKey(),
+  displayName: text('display_name').notNull().default('Unknown Jedi'),
   email: text('email'),
   createdAt: timestamp('created_at', { withTimezone: true })
     .defaultNow()
@@ -23,7 +24,7 @@ export const predictionsTable = pgTable('predictions', {
     .references(() => usersTable.id)
     .notNull(),
   content: text('content').notNull(),
-  remindAt: timestamp('remindAt', { withTimezone: true }),
+  remindAt: timestamp('remind_at', { withTimezone: true }),
   skipRemind: boolean().notNull().default(false),
   isPrivate: boolean().notNull().default(false),
   createdAt: timestamp('created_at', { withTimezone: true })
