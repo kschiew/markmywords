@@ -14,9 +14,9 @@ export default async function Page() {
   const predictions = (await caller.prediction.getAll()) ?? []
 
   return (
-    <div className="container mx-auto p-8 flex items-center justify-center min-h-svh w-full">
+    <div className="container mx-auto p-4 flex-col min-h-svh w-full gap-4">
       <div className="flex flex-col items-center justify-center gap-4 w-full">
-        <h1 className="text-2xl font-bold self-start pt-8">My Predictions</h1>
+        <h1 className="text-2xl font-bold self-start">My Predictions</h1>
         <div className="grid grid-cols-2 gap-4">
           {predictions.map((p) => (
             <PredictionCard
