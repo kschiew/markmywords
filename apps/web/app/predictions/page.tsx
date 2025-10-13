@@ -14,7 +14,7 @@ export default async function Page() {
   const predictions = (await caller.prediction.getAll()) ?? []
 
   return (
-    <div className="container mx-auto p-4 flex-col min-h-svh w-full gap-4">
+    <div className="container mx-auto p-4 flex-col min-h-svh w-full gap-4 items-start">
       <div className="flex flex-col items-center justify-center gap-4 w-full">
         <h1 className="text-2xl font-bold self-start">My Predictions</h1>
         <div className="grid grid-cols-2 gap-4">

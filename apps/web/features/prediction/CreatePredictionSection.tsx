@@ -13,6 +13,7 @@ import {
   CreatePredictionFormValues,
 } from '@/types/prediction'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 export const CreatePredictionSection = () => {
   const form = useForm<CreatePredictionFormValues>({
@@ -25,13 +26,18 @@ export const CreatePredictionSection = () => {
     },
   })
 
-  const { mutateAsync: createAsync } = trpc.prediction.create.useMutation()
+  const { mutateAsync: createAsync, isPending } =
+    trpc.prediction.create.useMutation()
 
   const [open, setOpen] = useState(false)
+
+  const router = useRouter()
 
   const onSubmit = async () => {
     const values = form.getValues()
     await createAsync(values)
+    setOpen(false)
+    router.refresh()
     toast('Prediction created successfully!')
   }
 
@@ -70,6 +76,7 @@ export const CreatePredictionSection = () => {
           onOpenChange={setOpen}
           form={form}
           onSubmit={form.handleSubmit(onSubmit)}
+          isPending={isPending}
         />
       </Form>
     </form>

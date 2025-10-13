@@ -6,10 +6,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@workspace/ui/components/dialog'
-import {
-  Blockquote,
-  BlockquoteAuthor,
-} from '@workspace/ui/components/blockquote'
 import { useUser } from '@clerk/nextjs'
 import { UseFormReturn } from 'react-hook-form'
 import {
@@ -39,6 +35,7 @@ export type CreatePredictionModalProps = {
   onSubmit: () => void
   open: boolean
   onOpenChange: (val: boolean) => void
+  isPending: boolean
 }
 
 function formatDate(date: Date | undefined) {
@@ -57,6 +54,7 @@ export const CreatePredictionModal = ({
   onSubmit,
   open,
   onOpenChange,
+  isPending,
 }: CreatePredictionModalProps) => {
   const { user } = useUser()
   const predictionText = form.watch('prediction')
@@ -174,7 +172,7 @@ export const CreatePredictionModal = ({
               </FormItem>
             )}
           />
-          <Button className="self-end" onClick={onSubmit}>
+          <Button className="self-end" onClick={onSubmit} disabled={isPending}>
             Submit
           </Button>
         </div>
