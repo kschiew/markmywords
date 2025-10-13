@@ -12,6 +12,7 @@ import {
   createPredictionFormSchema,
   CreatePredictionFormValues,
 } from '@/types/prediction'
+import { useState } from 'react'
 
 export const CreatePredictionSection = () => {
   const form = useForm<CreatePredictionFormValues>({
@@ -26,8 +27,9 @@ export const CreatePredictionSection = () => {
 
   const { mutateAsync: createAsync } = trpc.prediction.create.useMutation()
 
+  const [open, setOpen] = useState(false)
+
   const onSubmit = async () => {
-    console.log('onSubmit called')
     const values = form.getValues()
     await createAsync(values)
     toast('Prediction created successfully!')
@@ -35,8 +37,11 @@ export const CreatePredictionSection = () => {
 
   return (
     <form
-      onSubmit={form.handleSubmit(onSubmit)}
       className="flex flex-col items-center justify-center gap-4 w-full"
+      onSubmit={(e) => {
+        e.preventDefault()
+        setOpen(true)
+      }}
     >
       <Form {...form}>
         <FormField
@@ -61,6 +66,8 @@ export const CreatePredictionSection = () => {
         />
 
         <CreatePredictionModal
+          open={open}
+          onOpenChange={setOpen}
           form={form}
           onSubmit={form.handleSubmit(onSubmit)}
         />

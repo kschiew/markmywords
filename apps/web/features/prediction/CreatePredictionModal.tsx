@@ -37,6 +37,8 @@ import { Prediction } from './Prediction'
 export type CreatePredictionModalProps = {
   form: UseFormReturn<CreatePredictionFormValues>
   onSubmit: () => void
+  open: boolean
+  onOpenChange: (val: boolean) => void
 }
 
 function formatDate(date: Date | undefined) {
@@ -53,6 +55,8 @@ function formatDate(date: Date | undefined) {
 export const CreatePredictionModal = ({
   form,
   onSubmit,
+  open,
+  onOpenChange,
 }: CreatePredictionModalProps) => {
   const { user } = useUser()
   const predictionText = form.watch('prediction')
@@ -63,7 +67,7 @@ export const CreatePredictionModal = ({
   const [isCalendarPopoverOpen, setIsCalendarPopoverOpen] = useState(false)
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>
         <Button size="lg" disabled={!predictionText}>
           Mark it
