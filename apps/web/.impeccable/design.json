@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-13T00:00:00Z",
+  "title": "Design System: MarkMyWords",
+  "extensions": {
+    "colorMeta": {
+      "oxblood": {
+        "role": "primary",
+        "displayName": "Oxblood Press Ink",
+        "canonical": "oklch(0.31 0.116 17)",
+        "tonalRamp": ["oklch(0.15 0.116 17)", "oklch(0.24 0.116 17)", "oklch(0.31 0.116 17)", "oklch(0.42 0.116 17)", "oklch(0.54 0.116 17)", "oklch(0.66 0.116 17)", "oklch(0.81 0.116 17)", "oklch(0.95 0.116 17)"]
+      },
+      "oxblood-deep": {
+        "role": "primary",
+        "displayName": "Drenched Oxblood",
+        "canonical": "oklch(0.24 0.099 17)",
+        "tonalRamp": ["oklch(0.15 0.099 17)", "oklch(0.24 0.099 17)", "oklch(0.33 0.099 17)", "oklch(0.44 0.099 17)", "oklch(0.55 0.099 17)", "oklch(0.67 0.099 17)", "oklch(0.81 0.099 17)", "oklch(0.95 0.099 17)"]
+      },
+      "brass": {
+        "role": "secondary",
+        "displayName": "Reserved Brass",
+        "canonical": "oklch(0.7 0.126 78)",
+        "tonalRamp": ["oklch(0.15 0.126 78)", "oklch(0.26 0.126 78)", "oklch(0.37 0.126 78)", "oklch(0.48 0.126 78)", "oklch(0.59 0.126 78)", "oklch(0.7 0.126 78)", "oklch(0.83 0.126 78)", "oklch(0.95 0.126 78)"]
+      },
+      "brass-deep": {
+        "role": "secondary",
+        "displayName": "Struck Brass",
+        "canonical": "oklch(0.59 0.113 74)",
+        "tonalRamp": ["oklch(0.15 0.113 74)", "oklch(0.26 0.113 74)", "oklch(0.37 0.113 74)", "oklch(0.48 0.113 74)", "oklch(0.59 0.113 74)", "oklch(0.7 0.113 74)", "oklch(0.83 0.113 74)", "oklch(0.95 0.113 74)"]
+      },
+      "bone": {
+        "role": "neutral",
+        "displayName": "Bone Programme Stock",
+        "canonical": "oklch(0.9 0.021 82)",
+        "tonalRamp": ["oklch(0.15 0.021 82)", "oklch(0.26 0.021 82)", "oklch(0.37 0.021 82)", "oklch(0.48 0.021 82)", "oklch(0.59 0.021 82)", "oklch(0.72 0.021 82)", "oklch(0.9 0.021 82)", "oklch(0.95 0.021 82)"]
+      },
+      "bone-deep": {
+        "role": "neutral",
+        "displayName": "Shaded Stock",
+        "canonical": "oklch(0.855 0.026 80)",
+        "tonalRamp": ["oklch(0.15 0.026 80)", "oklch(0.26 0.026 80)", "oklch(0.37 0.026 80)", "oklch(0.48 0.026 80)", "oklch(0.6 0.026 80)", "oklch(0.73 0.026 80)", "oklch(0.855 0.026 80)", "oklch(0.95 0.026 80)"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Reading Ink Black",
+        "canonical": "oklch(0.16 0.004 60)",
+        "tonalRamp": ["oklch(0.15 0.004 60)", "oklch(0.16 0.004 60)", "oklch(0.27 0.004 60)", "oklch(0.38 0.004 60)", "oklch(0.5 0.004 60)", "oklch(0.63 0.004 60)", "oklch(0.79 0.004 60)", "oklch(0.95 0.004 60)"]
+      },
+      "ash": {
+        "role": "neutral",
+        "displayName": "Measurement Ash",
+        "canonical": "oklch(0.47 0.018 64)",
+        "tonalRamp": ["oklch(0.15 0.018 64)", "oklch(0.26 0.018 64)", "oklch(0.36 0.018 64)", "oklch(0.47 0.018 64)", "oklch(0.58 0.018 64)", "oklch(0.7 0.018 64)", "oklch(0.83 0.018 64)", "oklch(0.95 0.018 64)"]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule Oxblood",
+        "canonical": "oklch(0.31 0.116 17)",
+        "tonalRamp": ["oklch(0.15 0.116 17)", "oklch(0.24 0.116 17)", "oklch(0.31 0.116 17)", "oklch(0.42 0.116 17)", "oklch(0.54 0.116 17)", "oklch(0.66 0.116 17)", "oklch(0.81 0.116 17)", "oklch(0.95 0.116 17)"]
+      }
+    },
+    "typographyMeta": {
+      "bill": { "displayName": "Bill", "purpose": "The main-event claim at display scale. Big Shoulders, uppercase, 0.86 leading, with padding-top 0.14em so the cap tops do not clip." },
+      "headline": { "displayName": "Headline", "purpose": "A page's own title, set in oxblood on the band rule." },
+      "title": { "displayName": "Title", "purpose": "Section heads opening a band, set in oxblood." },
+      "strip": { "displayName": "Strip", "purpose": "The claim on a programme strip — roughly half the bill. The drop is the composition." },
+      "body": { "displayName": "Body", "purpose": "Archivo, supporting and explanatory copy only, measure capped at 52-62ch." },
+      "tape": { "displayName": "Tape", "purpose": "Courier Prime for all measurement and instruction: dates, stamps, labels, counts, buttons, nav. Tabular figures, 0.16em tracking, uppercase." }
+    },
+    "surfaces": [
+      { "name": "stock", "value": "repeating-linear-gradient(0deg, color-mix(in oklab, var(--oxblood) 3.5%, transparent) 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, color-mix(in oklab, var(--oxblood) 2.5%, transparent) 0 1px, transparent 1px 4px)", "purpose": "Printed paper tooth on the page ground. Two offset 1px hairline grids at 2.5-3.5% ink. Not a gradient; never raise past 4%." },
+      { "name": "dialog-wash", "value": "color-mix(in oklab, var(--oxblood-deep) 72%, transparent)", "purpose": "Modal overlay. The page is soaked in ink behind a dialog, not dimmed with black." },
+      { "name": "focus-ring", "value": "outline: 2px solid var(--ring); outline-offset: 2px", "purpose": "Global focus-visible treatment, oxblood in the daylight rendition and bone in the drenched one." }
+    ],
+    "shadows": [],
+    "motion": [
+      { "name": "stamp-impression", "value": "transform/opacity/filter 0.5s cubic-bezier(0.16, 1, 0.3, 1) — from scale(2.1) blur(10px) opacity 0 to rest, held 1800ms", "purpose": "The rubber-stamp impression that lands on the bill at the moment of commit. Once, at commit, nowhere else." },
+      { "name": "ink-swap", "value": "transition-colors, default duration", "purpose": "Every hover and state change in the system is a colour swap. Nothing moves, lifts or scales on hover." },
+      { "name": "reduced-motion", "value": "animation-duration: 0.01ms; transition-duration: 0.01ms", "purpose": "Global clamp under prefers-reduced-motion; the stamp also renders at rest with no scale or blur." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The mark action. A struck oxblood block with bone Courier knocked out of it; hover goes ink black, disabled empties to an outline.",
+      "html": "<button class=\"ds-btn-primary\">Mark it</button>",
+      "css": ".ds-btn-primary { font-family: var(--font-mono), ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.16em; text-transform: uppercase; background: var(--oxblood); color: var(--bone); padding: 0.875rem 1.5rem; border: none; border-radius: 0; cursor: pointer; transition: background-color 0.15s, color 0.15s; } .ds-btn-primary:hover { background: var(--ink); } .ds-btn-primary:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; } .ds-btn-primary:disabled { background: transparent; color: var(--ash); outline: 1px solid var(--rule); cursor: not-allowed; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Bare Courier in ash with no field, for dismissals and secondary auth actions. Never competes with the mark.",
+      "html": "<button class=\"ds-btn-ghost\">Not yet</button>",
+      "css": ".ds-btn-ghost { font-family: var(--font-mono), ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.16em; text-transform: uppercase; background: transparent; color: var(--ash); padding: 0.25rem; border: none; border-radius: 0; cursor: pointer; transition: color 0.15s; } .ds-btn-ghost:hover { color: var(--oxblood); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }"
+    },
+    {
+      "name": "Masthead",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Printed furniture, not a chrome bar: a struck wordmark block, Courier links divided by a hairline, and one heavy oxblood rule closing the band.",
+      "html": "<header class=\"ds-masthead\"><a class=\"ds-wordmark\" href=\"#\"><span class=\"ds-wm-a\">Mark</span><span class=\"ds-wm-b\">My</span><span class=\"ds-wm-c\">Words</span></a><nav class=\"ds-nav\"><a class=\"ds-nav-link ds-nav-div\" href=\"#\">The Bill</a><a class=\"ds-nav-link\" href=\"#\">My Record</a></nav></header>",
+      "css": ".ds-masthead { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; padding: 0.75rem 1.25rem; border-bottom: 2px solid var(--oxblood); background: var(--background); } .ds-wordmark { display: inline-flex; align-items: baseline; background: var(--oxblood); color: var(--bone); padding: 0.25rem 0.625rem; text-decoration: none; transition: background-color 0.15s; } .ds-wordmark:hover { background: var(--ink); } .ds-wm-a, .ds-wm-b, .ds-wm-c { font-family: var(--font-display), 'Archivo Narrow', ui-sans-serif, sans-serif; font-size: 26px; line-height: 1; letter-spacing: -0.025em; text-transform: uppercase; } .ds-wm-a { font-weight: 800; } .ds-wm-b { font-weight: 400; } .ds-wm-c { font-weight: 900; } .ds-nav { display: flex; align-items: center; } .ds-nav-link { font-family: var(--font-mono), ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--foreground); padding: 0.25rem 0.75rem; text-decoration: none; transition: color 0.15s; } .ds-nav-div { border-right: 1px solid var(--rule); } .ds-nav-link:hover { color: var(--oxblood); }"
+    },
+    {
+      "name": "Programme Strip",
+      "kind": "card",
+      "refersTo": "stamp-plain",
+      "description": "The container primitive of this world. No background, no box, no shadow — defined only by the rule above it and the air around it. Hairline rule for an ordinary call.",
+      "html": "<article class=\"ds-strip\"><p class=\"ds-strip-claim\">Lewis Hamilton will win the drivers championship in 2026</p><div class=\"ds-tape\"><span class=\"ds-tape-author\">Ada Vance</span><span aria-hidden=\"true\">/</span><time class=\"ds-tape-date\">04 SEP 2026</time><span class=\"ds-stamp-plain\">Settles 01 DEC 2026</span></div></article>",
+      "css": ".ds-strip { border-top: 1px solid var(--rule); padding: 1.5rem 0; display: flex; flex-direction: column; gap: 0.75rem; } .ds-strip-claim { font-family: var(--font-display), 'Archivo Narrow', ui-sans-serif, sans-serif; font-weight: 800; line-height: 0.86; letter-spacing: -0.025em; text-transform: uppercase; font-size: clamp(1.5rem, 3.2vw, 2.25rem); color: var(--ink); text-wrap: balance; margin: 0; } .ds-tape { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; font-family: var(--font-mono), ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.16em; text-transform: uppercase; font-variant-numeric: tabular-nums; color: var(--ash); } .ds-tape-author { color: var(--oxblood); } .ds-stamp-plain { border: 1px solid var(--rule); color: var(--ash); padding: 0.125rem 0.375rem; }"
+    },
+    {
+      "name": "Coming-Due Strip",
+      "kind": "card",
+      "refersTo": "stamp-reserved",
+      "description": "The same strip carrying the reserved colour: heavy rule above, solid brass stamp with ink type. Emitted only by the state vocabulary, only for coming-due and due-today.",
+      "html": "<article class=\"ds-strip-due\"><p class=\"ds-strip-claim-due\">The bridge tolls go up before the new year</p><div class=\"ds-tape-due\"><span class=\"ds-tape-author-due\">Ada Vance</span><span aria-hidden=\"true\">/</span><time>04 SEP 2026</time><span class=\"ds-stamp-brass\">Due today</span></div></article>",
+      "css": ".ds-strip-due { border-top: 2px solid var(--oxblood); padding: 1.5rem 0; display: flex; flex-direction: column; gap: 0.75rem; } .ds-strip-claim-due { font-family: var(--font-display), 'Archivo Narrow', ui-sans-serif, sans-serif; font-weight: 800; line-height: 0.86; letter-spacing: -0.025em; text-transform: uppercase; font-size: clamp(1.5rem, 3.2vw, 2.25rem); color: var(--ink); margin: 0; } .ds-tape-due { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; font-family: var(--font-mono), ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.16em; text-transform: uppercase; font-variant-numeric: tabular-nums; color: var(--ash); } .ds-tape-author-due { color: var(--oxblood); } .ds-stamp-brass { background: var(--brass); color: var(--ink); padding: 0.125rem 0.375rem; }"
+    },
+    {
+      "name": "Bill Input",
+      "kind": "input",
+      "refersTo": "bill-input",
+      "description": "The signature capture. The field IS the wood type: an invisible sizer holds the box open, a ghost set line sits behind it, and a transparent textarea lays over both with identical type metrics.",
+      "html": "<div class=\"ds-bill\"><p class=\"ds-bill-type ds-bill-sizer\" aria-hidden=\"true\">Lewis Hamilton will win the drivers championship in 2026</p><p class=\"ds-bill-type ds-bill-ghost\" aria-hidden=\"true\">Lewis Hamilton will win the drivers championship in 2026</p><textarea class=\"ds-bill-type ds-bill-field\" spellcheck=\"true\"></textarea></div>",
+      "css": ".ds-bill { position: relative; } .ds-bill-type { font-family: var(--font-display), 'Archivo Narrow', ui-sans-serif, sans-serif; font-weight: 800; line-height: 0.86; letter-spacing: -0.025em; text-transform: uppercase; font-size: clamp(2.25rem, 6.5vw, 5.25rem); width: 100%; border: 0; border-radius: 0; padding: 0.14em 0 0 0; margin: 0; white-space: pre-wrap; overflow-wrap: break-word; } .ds-bill-sizer { visibility: hidden; } .ds-bill-ghost { position: absolute; inset: 0; color: var(--ash); pointer-events: none; transition: opacity 0.2s; } .ds-bill-field { position: absolute; inset: 0; resize: none; overflow: hidden; background: transparent; color: var(--ink); outline: none; } .ds-bill-field:focus + .ds-bill-ghost, .ds-bill:focus-within .ds-bill-ghost { opacity: 0.55; }"
+    },
+    {
+      "name": "Tale of the Tape",
+      "kind": "custom",
+      "refersTo": "input-tape",
+      "description": "The measurement rule under the bill: label/value pairs in Courier opening on a heavy rule, with the primary action at the end of the same line.",
+      "html": "<div class=\"ds-tape-row\"><div class=\"ds-tape-cell\"><span class=\"ds-tape-label\">Called by</span><span class=\"ds-tape-value\">Ada Vance</span></div><div class=\"ds-tape-cell\"><span class=\"ds-tape-label\">On</span><span class=\"ds-tape-value\">04 SEP 2026</span></div><div class=\"ds-tape-cell\"><span class=\"ds-tape-label\">Settles</span><span class=\"ds-tape-value\">01 DEC 2026</span></div><button class=\"ds-tape-action\">Mark it</button></div>",
+      "css": ".ds-tape-row { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; border-top: 2px solid var(--oxblood); padding-top: 1rem; } .ds-tape-cell { display: flex; flex-direction: column; gap: 0.25rem; } .ds-tape-label, .ds-tape-value { font-family: var(--font-mono), ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.16em; text-transform: uppercase; font-variant-numeric: tabular-nums; } .ds-tape-label { color: var(--ash); } .ds-tape-value { color: var(--ink); } .ds-tape-action { margin-left: auto; font-family: var(--font-mono), ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.16em; text-transform: uppercase; background: var(--oxblood); color: var(--bone); border: none; border-radius: 0; padding: 0.875rem 1.5rem; cursor: pointer; transition: background-color 0.15s; } .ds-tape-action:hover { background: var(--ink); } .ds-tape-action:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }"
+    },
+    {
+      "name": "Squared Switch",
+      "kind": "custom",
+      "refersTo": "input-tape",
+      "description": "A stock shadcn switch re-specced at the component: rectangular track and thumb, transparent hairline-bordered unchecked state, oxblood when checked. Never a pill.",
+      "html": "<span class=\"ds-switch\" data-state=\"unchecked\" role=\"switch\" tabindex=\"0\"><span class=\"ds-switch-thumb\"></span></span><span class=\"ds-switch\" data-state=\"checked\" role=\"switch\" tabindex=\"0\"><span class=\"ds-switch-thumb\"></span></span>",
+      "css": ".ds-switch { display: inline-flex; align-items: center; width: 2.25rem; height: 1.25rem; border-radius: 0; box-shadow: none; margin-right: 0.75rem; cursor: pointer; transition: background-color 0.15s; } .ds-switch[data-state='unchecked'] { background: transparent; border: 1px solid var(--input); } .ds-switch[data-state='checked'] { background: var(--oxblood); border: 1px solid var(--oxblood); } .ds-switch-thumb { display: block; width: 0.875rem; height: 0.875rem; border-radius: 0; transition: transform 0.15s; } .ds-switch[data-state='unchecked'] .ds-switch-thumb { background: var(--ash); transform: translateX(2px); } .ds-switch[data-state='checked'] .ds-switch-thumb { background: var(--bone); transform: translateX(18px); } .ds-switch:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }"
+    },
+    {
+      "name": "Stamp Impression",
+      "kind": "custom",
+      "refersTo": "stamp-plain",
+      "description": "The commit moment: a rotated, heavy-bordered Courier block that lands on the bill once, with the date, and holds 1.8s before the field clears.",
+      "html": "<span class=\"ds-stamp-impression\">Marked 04 SEP 2026</span>",
+      "css": ".ds-stamp-impression { display: inline-block; font-family: var(--font-display), 'Archivo Narrow', ui-sans-serif, sans-serif; font-weight: 800; line-height: 0.86; letter-spacing: -0.025em; text-transform: uppercase; font-size: clamp(1.75rem, 4vw, 3rem); color: var(--oxblood); border: 3px solid var(--oxblood); border-radius: 0; padding: 0.75rem 1.5rem; transform: rotate(-9deg); animation: ds-stamp-land 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; } @keyframes ds-stamp-land { from { opacity: 0; transform: rotate(-9deg) scale(2.1); filter: blur(10px); } to { opacity: 1; transform: rotate(-9deg) scale(1); filter: blur(0); } } @media (prefers-reduced-motion: reduce) { .ds-stamp-impression { animation: none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Inverted Fight Bill",
+    "overview": "This is a boxing bill printed in the Globe Poster of Baltimore tradition, run inverted: bone programme stock is the ground everywhere, oxblood is the heaviest ink on the sheet, and brass is held back for one job. A prediction is a booked fight with a date on it, so the claim is set at full volume in ultra-condensed wood type and everything beneath it — who called it, on what day, when it settles — is set in Courier because it is measurement, not commentary. Nothing in this world is a card. A strip of the programme is defined by the rule above it and the air around it.\n\nDensity varies on purpose. The bill at the top of the page is monumental: one sentence at display scale, the mechanism demonstrating itself as the visitor types. The programme below it is intimate and dense, strips stacked on hairlines, the type dropping by roughly half. That gap between the two scales is the composition; flattening them into one comfortable middle size is how this world dies.\n\nThe palette is knowingly the nearest neighbour to the look models default to — warm off-white plus a deep red. What keeps it out of that cluster is hardness: condensed, uppercase, ruled, flat ink, square corners, zero air where air would be polite. Set the same two colours in an elegant high-contrast serif with soft edges and generous whitespace and you have the generic AI page. There is no serif display anywhere in this build and there never will be.",
+    "keyCharacteristics": [
+      "Bone stock to the edges, carrying a printed-paper texture, never a gradient",
+      "Oxblood as the heaviest ink and the only structural line colour",
+      "Brass reserved system-wide for a single meaning: a call coming due",
+      "Three faces, no serif: condensed wood type, a grotesque, and Courier",
+      "Square corners at every radius step; flat ink, no shadow anywhere",
+      "Rules carry information — hairline and heavy mean different things"
+    ],
+    "headroom": [
+      "Higher ink coverage in the first viewport",
+      "Face mixing across widths and weights within one composition (the opsz and wdth axes are loaded and barely used)",
+      "A richer rule vocabulary beyond the two weights that exist",
+      "Reversed-out setting — bone knocked out of an oxblood field — on a headline or a whole section, not only the wordmark and buttons",
+      "Register marks"
+    ],
+    "rules": [
+      { "name": "The Brass Reserve Rule", "body": "Brass is emitted by lib/predictionState.ts and by nothing else. It is true only for coming-due and due-today. A component that reaches for bg-brass on its own authority is a bug, not a style choice — the colour's meaning is its only justification.", "section": "colors" },
+      { "name": "The Oxblood Line Rule", "body": "Every rule, border, stroke and divider in this system is oxblood at some strength. There are no grey lines. If a line needs to recede, lower its opacity, do not change its hue.", "section": "colors" },
+      { "name": "The Printed Stock Rule", "body": "The ground carries --stock: two offset 1px hairline grids at 2.5-3.5% ink. It is paper tooth, not a gradient. Never replace it with a gradient, a blur, or an image, and never raise it past 4% — above that it reads as a pattern instead of a stock.", "section": "colors" },
+      { "name": "The Drenched Rendition", "body": "A .dark variant ships: oxblood-deep becomes the stock, bone becomes the ink, rules invert to bone, and brass keeps its single job and its brightness. It is the same press run soaked, not a second design system. It has never been inspected by eye — treat it as shipped-but-unverified and check it visually before building new surfaces against it.", "section": "colors" },
+      { "name": "The No Serif Rule", "body": "There is no serif display face in this system and there will not be one. The palette sits one step from the generic default; hard condensed type is the only thing holding it away. Any elegant high-contrast serif is the failure this world was built to avoid.", "section": "typography" },
+      { "name": "The Courier Measures Rule", "body": "Courier is used for measurement and instruction — dates, counts, stamps, labels, buttons, nav — never as decorative texture and never for reading passages.", "section": "typography" },
+      { "name": "The Wood Type Slot Rule", "body": "Big Shoulders is reserved for the claim itself, page and section heads, the wordmark and the stamp impression. It never sets a label, a paragraph, or a control.", "section": "typography" },
+      { "name": "The Figures Line Up Rule", "body": "Every <time> and every .tabular element runs tabular numerals at 0.02em. Dates are formatted by stampDate (DD MON YYYY), never by Intl, so server and client print the same sheet.", "section": "typography" },
+      { "name": "The Scale Sequence Rule", "body": "The bill is monumental and the programme is intimate; the claim type drops by roughly half between them. Never normalise the two toward a comfortable middle — the contrast between the main event and the undercard is the composition.", "section": "layout" },
+      { "name": "The Printed Furniture Rule", "body": "Navigation lives inside the typographic composition on the masthead baseline — struck wordmark block, Courier links divided by a hairline — not in a floating chrome bar. Headers do not stick, blur, or shrink on scroll.", "section": "layout" },
+      { "name": "The Flat Ink Rule", "body": "No shadow, no gradient, no blur, no glass, no glow. Ink is either on the sheet or it is not. The only blur in the build is transient — the stamp impression resolving from blur(10px) to zero on commit.", "section": "elevation" },
+      { "name": "The Rule Weight Rule", "body": "Rules carry information. A hairline (1px oxblood) separates an ordinary strip: open, called, or no-bell. A heavy rule (2px oxblood) means this call is coming due, and it is also the band-opening rule for a page or section head. Weight is assigned by the state vocabulary, never chosen for looks.", "section": "elevation" },
+      { "name": "The Squared-At-The-Component Rule", "body": "Stock shadcn components are re-specced in their own files, not patched in CSS. switch.tsx carries rounded-none on the root and thumb and a transparent, hairline-bordered unchecked track; dialog.tsx carries the oxblood-deep overlay wash directly. Utility classes beat @layer components, so a CSS override loses to the component's own Tailwind. Fix the component; the token layer only handles what has no component to edit (Clerk's injected DOM, the switch's geometry).", "section": "shapes" }
+    ],
+    "dos": [
+      "Do let brass come only from predictionState. If a new surface needs to show urgency, it asks the state vocabulary for it.",
+      "Do give every strip its rule and its air, and nothing else — no box, no fill, no border.",
+      "Do set claims in Big Shoulders and everything measurable in Courier, with tabular figures and stampDate formatting.",
+      "Do keep the scale sequence: monumental bill, intimate programme, roughly a 2:1 drop in claim size.",
+      "Do square stock components in their own file (rounded-none on the component) rather than in @layer components, because utilities win.",
+      "Do cap reading measure at 52-62ch and keep body copy in Archivo at 0.875rem/1.625.",
+      "Do spend the world's unspent devices first — heavier ink coverage, face mixing across the opsz/wdth axes, more rule weights, reversed-out headlines, register marks — before importing a device from outside it.",
+      "Do verify the drenched .dark rendition by eye before shipping new surfaces that rely on it."
+    ],
+    "donts": [
+      "Don't introduce a serif display face, a rounded corner, a shadow, a gradient, a blur or a glass surface. Each one is the named failure mode of this palette.",
+      "Don't spend brass on anything but a call coming due — not on hover, not on a highlight, not on a logo, not on an empty state.",
+      "Don't build a card grid. There are no cards in this world; there is a bill and a programme of strips.",
+      "Don't use a grey line. Every rule, border and stroke is oxblood at some strength.",
+      "Don't add a third rule weight, a new face, or a new stamp colour without deciding what it means; every weight and colour in this system carries information.",
+      "Don't print a kicker, eyebrow or label line above a headline. The bill opens on the claim.",
+      "Don't imply a verdict — no correct/incorrect stamp, no accuracy figure, no score. The vocabulary tops out at \"the day arrived\".",
+      "Don't promise a notification. A scheduled bell may be printed; it must never be described as something that will ring."
+    ]
+  }
+}

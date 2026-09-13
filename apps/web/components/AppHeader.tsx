@@ -5,39 +5,73 @@ import {
   SignUpButton,
   UserButton,
 } from '@clerk/nextjs'
-import Image from 'next/image'
-import { Button } from '@workspace/ui/components/button'
 import Link from 'next/link'
-import { currentUser } from '@clerk/nextjs/server'
 
-export const AppHeader = async () => {
-  const user = await currentUser()
+/*
+ * Printed furniture, not a chrome bar: the wordmark is a struck block, the nav
+ * sits on the same baseline as the imprint line, and one heavy rule closes the
+ * masthead the way a bill's top rule does.
+ */
+export const AppHeader = () => {
   return (
-    <div className="relative top-0 left-0 w-full h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 sm:px-6 lg:px-8 z-50">
-      <div className="flex items-center">
-        <Image src={'images/logo.svg'} alt="logo" width={220} height={100} />
-        <div className="flex">
-          <Button asChild variant={'ghost'}>
-            <Link href="/">Home</Link>
-          </Button>
-          {user && (
-            <Button asChild variant={'ghost'}>
-              <Link href="/predictions">My Predictions</Link>
-            </Button>
-          )}
+    <header className="border-b-2 border-oxblood dark:border-bone">
+      <div className="mx-auto flex w-full max-w-[1400px] flex-wrap items-center gap-x-6 gap-y-3 px-5 py-3 sm:px-8">
+        <Link
+          href="/"
+          className="group inline-flex items-baseline bg-oxblood px-2.5 py-1 text-bone transition-colors hover:bg-ink dark:bg-bone dark:text-oxblood-deep"
+        >
+          <span className="bill-type text-[26px] leading-none">Mark</span>
+          <span className="bill-type text-[26px] font-normal leading-none">
+            My
+          </span>
+          <span className="bill-type text-[26px] font-black leading-none">
+            Words
+          </span>
+        </Link>
+
+        <nav aria-label="Main" className="flex items-center">
+          <Link
+            href="/"
+            className="tape border-r border-rule px-3 py-1 text-ink transition-colors hover:text-oxblood dark:text-bone"
+          >
+            The Bill
+          </Link>
+          <SignedIn>
+            <Link
+              href="/predictions"
+              className="tape px-3 py-1 text-ink transition-colors hover:text-oxblood dark:text-bone"
+            >
+              My Record
+            </Link>
+          </SignedIn>
+        </nav>
+
+        <div className="ml-auto flex items-center gap-3">
+          <SignedOut>
+            <SignInButton>
+              <button className="tape cursor-pointer px-1 py-1 text-ash transition-colors hover:text-oxblood">
+                Sign in
+              </button>
+            </SignInButton>
+            <SignUpButton>
+              <button className="tape cursor-pointer bg-oxblood px-3 py-2 text-bone transition-colors hover:bg-ink dark:bg-bone dark:text-oxblood-deep">
+                Start calling
+              </button>
+            </SignUpButton>
+          </SignedOut>
+          <SignedIn>
+            <UserButton
+              appearance={{
+                elements: {
+                  avatarBox: 'rounded-none h-8 w-8',
+                  userButtonAvatarBox: 'rounded-none',
+                  userButtonPopoverCard: 'rounded-none',
+                },
+              }}
+            />
+          </SignedIn>
         </div>
       </div>
-      <SignedOut>
-        <div className="flex gap-2">
-          <SignInButton />
-          <SignUpButton>
-            <Button>Sign Up</Button>
-          </SignUpButton>
-        </div>
-      </SignedOut>
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
-    </div>
+    </header>
   )
 }
