@@ -1,81 +1,107 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @source "../../../apps/**/*.{ts,tsx}";
 @source "../../../components/**/*.{ts,tsx}";
 @source "../**/*.{ts,tsx}";
 
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+  The bill. Bone programme stock, oxblood press ink, brass held in reserve.
+  Brass is the one colour in this system that means something: a prediction
+  coming due, and nothing else. Anything that spends it elsewhere is a bug.
+*/
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --bone: oklch(0.9 0.021 82);
+  --bone-deep: oklch(0.855 0.026 80);
+  --ink: oklch(0.16 0.004 60);
+  --ash: oklch(0.47 0.018 64);
+  --oxblood: oklch(0.31 0.116 17);
+  --oxblood-deep: oklch(0.24 0.099 17);
+  --brass: oklch(0.7 0.126 78);
+  --brass-deep: oklch(0.59 0.113 74);
+
+  --background: var(--bone);
+  --foreground: var(--ink);
+  --card: var(--bone);
+  --card-foreground: var(--ink);
+  --popover: var(--bone);
+  --popover-foreground: var(--ink);
+  --primary: var(--oxblood);
+  --primary-foreground: var(--bone);
+  --secondary: var(--bone-deep);
+  --secondary-foreground: var(--oxblood);
+  --muted: var(--bone-deep);
+  --muted-foreground: var(--ash);
+  --accent: var(--bone-deep);
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.46 0.176 27);
+  --destructive-foreground: var(--bone);
+  --border: color-mix(in oklab, var(--oxblood) 34%, transparent);
+  --rule: var(--oxblood);
+  --input: color-mix(in oklab, var(--oxblood) 46%, transparent);
+  --ring: var(--oxblood);
+  --radius: 0rem;
+
+  /* Printed stock, not a gradient: two offset hairline grids at very low ink. */
+  --stock: repeating-linear-gradient(
+      0deg,
+      color-mix(in oklab, var(--oxblood) 3.5%, transparent) 0 1px,
+      transparent 1px 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--oxblood) 2.5%, transparent) 0 1px,
+      transparent 1px 4px
+    );
 }
 
+/*
+  Night bill: the drenched rendition of the same press run. Oxblood becomes the
+  stock, bone becomes the ink, brass keeps its single job.
+*/
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --bone: oklch(0.9 0.021 82);
+  --bone-deep: oklch(0.82 0.026 80);
+  --ink: oklch(0.9 0.021 82);
+  --ash: oklch(0.72 0.03 70);
+  --oxblood: oklch(0.24 0.099 17);
+  --oxblood-deep: oklch(0.18 0.08 17);
+  --brass: oklch(0.74 0.13 78);
+  --brass-deep: oklch(0.64 0.12 76);
+
+  --background: var(--oxblood-deep);
+  --foreground: var(--bone);
+  --card: var(--oxblood-deep);
+  --card-foreground: var(--bone);
+  --popover: var(--oxblood-deep);
+  --popover-foreground: var(--bone);
+  --primary: var(--bone);
+  --primary-foreground: var(--oxblood-deep);
+  --secondary: oklch(0.29 0.09 17);
+  --secondary-foreground: var(--bone);
+  --muted: oklch(0.29 0.09 17);
+  --muted-foreground: var(--ash);
+  --accent: oklch(0.29 0.09 17);
+  --accent-foreground: var(--bone);
+  --destructive: oklch(0.62 0.19 27);
+  --destructive-foreground: oklch(0.18 0.08 17);
+  --border: color-mix(in oklab, var(--bone) 26%, transparent);
+  --rule: color-mix(in oklab, var(--bone) 62%, transparent);
+  --input: color-mix(in oklab, var(--bone) 34%, transparent);
+  --ring: var(--bone);
+
+  --stock: repeating-linear-gradient(
+      0deg,
+      color-mix(in oklab, var(--bone) 3%, transparent) 0 1px,
+      transparent 1px 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--bone) 2%, transparent) 0 1px,
+      transparent 1px 4px
+    );
 }
 
 @theme inline {
@@ -98,30 +124,180 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-bone: var(--bone);
+  --color-bone-deep: var(--bone-deep);
+  --color-ink: var(--ink);
+  --color-ash: var(--ash);
+  --color-oxblood: var(--oxblood);
+  --color-oxblood-deep: var(--oxblood-deep);
+  --color-brass: var(--brass);
+  --color-brass-deep: var(--brass-deep);
+  --color-rule: var(--rule);
+
+  --radius-sm: 0rem;
+  --radius-md: 0rem;
+  --radius-lg: 0rem;
+  --radius-xl: 0rem;
+
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+  --font-display: var(--font-display), 'Archivo Narrow', ui-sans-serif, sans-serif;
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
+    border-radius: 0;
   }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     @apply bg-background text-foreground;
+    background-image: var(--stock);
+    font-feature-settings: 'kern' 1;
+  }
+
+  /* Browser surfaces belong to the press run too. */
+  ::selection {
+    background: var(--oxblood);
+    color: var(--bone);
+  }
+
+  .dark ::selection {
+    background: var(--bone);
+    color: var(--oxblood-deep);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  input,
+  textarea {
+    caret-color: var(--oxblood);
+  }
+
+  .dark input,
+  .dark textarea {
+    caret-color: var(--bone);
+  }
+
+  /* Dates and tale-of-the-tape figures line up in columns or they are not a table. */
+  time,
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+  }
+
+  a {
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: from-font;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--oxblood) 55%, transparent)
+      transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--oxblood) 55%, transparent);
+    border: 3px solid var(--background);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--oxblood);
+  }
+}
+
+@layer components {
+  /* Wood type: the bill's voice. Only the bill and the strips use it. */
+  .bill-type {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 0.86;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
+  }
+
+  /* Courier does measurement here — dates, figures, stamps. Never decoration. */
+  .tape {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /*
+    Commit every atom: a pill switch and a circular avatar are stock components
+    wearing their own world, not this one. Squared here rather than forking the
+    shadcn component, so every consumer inherits the press run.
+  */
+  [data-slot='switch'] {
+    border-radius: 0;
+    box-shadow: none;
+    height: 1.25rem;
+    width: 2.25rem;
+  }
+
+  [data-slot='switch'][data-state='unchecked'] {
+    background-color: transparent;
+    border: 1px solid var(--input);
+  }
+
+  [data-slot='switch-thumb'] {
+    border-radius: 0;
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+
+  [data-slot='switch'][data-state='unchecked'] [data-slot='switch-thumb'] {
+    background-color: var(--ash);
+  }
+
+  .cl-avatarBox,
+  .cl-userButtonAvatarBox,
+  .cl-userButtonTrigger,
+  .cl-avatarImageActions,
+  .cl-card,
+  .cl-userButtonPopoverCard {
+    border-radius: 0 !important;
+  }
+
+  .rule-hair {
+    border-top: 1px solid var(--rule);
+  }
+
+  .rule-heavy {
+    border-top: 2px solid var(--oxblood);
+  }
+
+  .dark .rule-heavy {
+    border-top-color: var(--bone);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

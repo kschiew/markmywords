@@ -55,3 +55,12 @@ keys/
 data/
 output/
 hidden-input/
+
+# impeccable design-skill working files.
+# Screenshots, live-mode state and build scratch are ignored; the two durable
+# records are kept. Needs the **/ prefix and the /* form: a middle slash anchors
+# a pattern to the repo root, and git will not descend into an excluded
+# directory to apply a negation.
+**/.impeccable/*
+!**/.impeccable/surfaces/
+!**/.impeccable/design.json
